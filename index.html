@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1120">
+    <title>Cofre Digital | Segurança de Senhas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="#" class="brand">
+            <span class="brand-icon">🔐</span>
+            <span>Cofre<span class="highlight">Digital</span></span>
+        </a>
+        <span class="status">
+            <span class="status-dot"></span>
+            Projeto educacional
+        </span>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <div class="eyebrow">SEGURANÇA DIGITAL</div>
+            <h1>Suas senhas, protegidas por <span>hash.</span></h1>
+            <p>
+                Cadastre serviços, gere hashes criptográficos
+                e teste a verificação de senhas em um só lugar.
+            </p>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <span class="stat-label">Cadastros</span>
+                <strong id="total">0</strong>
+                <span class="stat-note">Serviços registrados</span>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-label">Algoritmo</span>
+                <strong class="algorithm">SHA-256</strong>
+                <span class="stat-note">Hash criptográfico</span>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-label">Armazenamento</span>
+                <strong class="algorithm">Local</strong>
+                <span class="stat-note">Neste navegador</span>
+            </article>
+        </section>
+
+        <section class="workspace">
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <span class="section-label">NOVO REGISTRO</span>
+                        <h2>Cadastrar senha</h2>
+                    </div>
+                    <span class="panel-icon">＋</span>
+                </div>
+
+                <form id="formCadastro">
+                    <label for="servico">Nome do serviço</label>
+                    <input
+                        id="servico"
+                        type="text"
+                        placeholder="Ex.: Minha conta"
+                        maxlength="80"
+                        required
+                    >
+
+                    <label for="usuario">Usuário ou e-mail</label>
+                    <input
+                        id="usuario"
+                        type="text"
+                        placeholder="Ex.: aluno@email.com"
+                        maxlength="120"
+                        required
+                    >
+
+                    <label for="senha">Senha para gerar o hash</label>
+                    <div class="password-field">
+                        <input
+                            id="senha"
+                            type="password"
+                            placeholder="Digite uma senha fictícia"
+                            maxlength="256"
+                            autocomplete="off"
+                            required
+                        >
+                        <button type="button" class="toggle-password"
+                            data-target="senha" aria-label="Mostrar senha">
+                            Mostrar
+                        </button>
+                    </div>
+
+                    <div class="info-box">
+                        <span>ⓘ</span>
+                        <p>A senha será transformada em hash antes de ser salva.</p>
+                    </div>
+
+                    <button class="primary-button" type="submit">
+                        Gerar hash e cadastrar
+                        <span>→</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <span class="section-label">SEUS REGISTROS</span>
+                        <h2>Senhas cadastradas</h2>
+                    </div>
+                    <span class="panel-icon">▤</span>
+                </div>
+
+                <div id="lista" class="password-list">
+                    <div class="empty-state">
+                        <span class="empty-icon">🔒</span>
+                        <h3>Seu cofre está vazio</h3>
+                        <p>Cadastre um serviço para começar.</p>
+                    </div>
+                </div>
+
+                <button id="limparTudo" class="secondary-button" type="button">
+                    Excluir todos os registros
+                </button>
+            </div>
+
+        </section>
+
+        <section class="explanation">
+            <div class="explanation-icon">🧠</div>
+            <div>
+                <h2>Como funciona o hash?</h2>
+                <p>
+                    O hash transforma os dados de entrada em um resumo
+                    de tamanho fixo. Ao verificar uma senha, o programa
+                    calcula novamente o hash e compara os resultados.
+                    Não é necessário descriptografar a senha original.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <span>COFRE DIGITAL · PROJETO START</span>
+            <span>Desenvolvido para fins educacionais</span>
+        </footer>
+
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
